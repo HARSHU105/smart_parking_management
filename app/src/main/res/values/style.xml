@@ -1,0 +1,324 @@
+<resources>
+
+    <style name="AppThemeBase" parent="AppTheme">
+
+    </style>
+
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:textViewStyle">@style/AppTheme.Widget.TextView</item>
+        <!-- Customize your theme here. -->
+        <!--actionbar color-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--status bar color-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:windowBackground">@color/bg_dashboard</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+
+
+
+        <!--Text Colors-->
+        <item name="android:textColorPrimary">@color/textTitle</item>
+        <item name="android:textColorSecondary">@color/textSubTitle</item>
+        <item name="android:textColorTertiary">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/textSubTitle</item>
+
+        <item name="drawerArrowStyle">@style/DrawerStyle</item>
+    </style>
+
+
+
+    <!--// For Drawer Style : here we spin the Hamburger icon -->
+    <style name="DrawerStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <!--<item name="colorControlNormal">@color/colorNormal</item>-->
+        <item name="spinBars">true</item>
+        <!--<item name="color">@color/textTitle</item>-->
+    </style>
+
+    <!--//  fontPath style for theme-->
+    <style name="AppTheme.Widget" />
+
+    <style name="AppTheme.Widget.TextView" parent="android:Widget.Holo.Light.TextView">
+        <item name="fontPath">fontPath/montserrat_regular.ttf</item>
+        <item name="android:textColor">@color/header_light_text</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="AppTheme.TabTextAppearence" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+
+
+
+    <!--Edit text style-->
+    <style name="Style.edittext" parent="@android:style/Widget.EditText">
+        <!--<item name="android:background">@null</item>-->
+        <item name="android:textColor">@color/uvv_black</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+        <item name="android:layout_marginTop">8dp</item>
+
+    </style>
+
+
+    <!--Button style-->
+    <style name="ButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/btn_generate</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:minHeight">39dp</item>
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+    </style>
+
+    <style name="ButtonGreen" parent="@android:style/Widget.Button">
+
+        <item name="android:background">@drawable/lightgreen_background</item>
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textAllCaps">false</item>
+
+        <item name="android:textSize">16sp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:minHeight">39dp</item>
+
+    </style>
+
+
+    <style name="ButtonGreenSmall" parent="@android:style/Widget.Button">
+
+        <item name="android:background">@drawable/lightgreen_background</item>
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textAllCaps">false</item>
+
+        <item name="android:textSize">14sp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:minHeight">34dp</item>
+
+    </style>
+
+    <style name="ButtonBlue" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@drawable/blue_border_lightblue_background</item>
+        <item name="android:focusable">true</item>
+        <item name="android:minHeight">39dp</item>
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+
+
+    </style>
+
+
+    <!--TextView style-->
+    <style name="TextViewStyle" parent="android:style/Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/secondary_text_color</item>
+    </style>
+
+    <style name="TextViewStyle.Large" parent="TextViewStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="fontPath">font/montserrat_semibold.ttf</item>
+        <item name="android:textColor">@color/header_dark_text</item>
+
+    </style>
+
+    <style name="TextViewStyle.LargeBold" parent="TextViewStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="fontPath">font/bungee.ttf</item>
+        <item name="android:textColor">@color/header_dark_text</item>
+
+    </style>
+
+    <style name="TextViewStyle.MediumDark" parent="TextViewStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+        <item name="android:textColor">@color/header_dark_text</item>
+    </style>
+
+    <style name="TextViewStyle.MediumLarge" parent="TextViewStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="fontPath">font/montserrat_medium.ttf</item>
+        <item name="android:textColor">@color/header_light_text</item>
+    </style>
+
+
+    <style name="TextViewStyle.Medium" parent="TextViewStyle">
+        <item name="android:textSize">13sp</item>
+        <item name="fontPath">font/montserrat_medium.ttf</item>
+        <item name="android:textColor">@color/header_light_text</item>
+    </style>
+
+    <style name="TextViewStyle.MediumRegular" parent="TextViewStyle">
+        <item name="android:textSize">13sp</item>
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+        <item name="android:textColor">@color/header_light_text</item>
+    </style>
+
+    <style name="TextViewStyle.MediumBold" parent="TextViewStyle">
+        <item name="fontPath">font/montserrat_semibold.ttf</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <style name="TextViewStyle.Small" parent="TextViewStyle">
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/header_light_text</item>
+    </style>
+
+    <style name="TextViewStyle.VerySmall" parent="TextViewStyle">
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/description_text</item>
+    </style>
+
+
+    <!---->
+    <style name="HeaderLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/blue_border_lightblue_background</item>
+    </style>
+
+    <style name="LinearLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <!--<item name="android:background">@drawable/lightblue_border</item>-->
+        <item name="android:padding">10dp</item>
+    </style>
+
+
+    <!--Dialog theme-->
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+
+
+    <!--<style name="ThemeSpinner">-->
+    <!--&lt;!&ndash; Color when pressed &ndash;&gt;-->
+    <!--<item name="colorAccent">#ffa000</item>-->
+    <!--&lt;!&ndash; Default color for the dropdown arrow and line &ndash;&gt;-->
+    <!--<item name="colorControlNormal">#ffc107</item>-->
+
+    <!--<item name="android:textSize">14sp</item>-->
+    <!---->
+    <!--</style>-->
+
+    <!-- Spinner Styles -->
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner"></style>
+
+    <style name="SpinnerStyle.Underlined" parent="Widget.AppCompat.Spinner.Underlined">
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">2dp</item>
+
+    </style>
+
+
+    <!-- Edit Text Styles -->
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">14sp</item>
+        <item name="fontPath">font/montserrat_regular.ttf</item>
+    </style>
+
+    <style name="editTextSpinner" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="android:background">@drawable/edittext_round_corner</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:textSize">14sp</item>
+       <item name="fontPath">font/montserrat_regular.ttf</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox"></style>
+
+    <!--Textview-->
+
+    <style name="TextStyle.Title" parent="TextAppearance.AppCompat.Title"></style>
+
+    <style name="TextStyle.Body1" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/description_text</item>
+    </style>
+
+
+    <style name="ButtonStyle.Colored" parent="Widget.AppCompat.Button.Colored"></style>
+
+    <style name="ButtonStyle.Borderless" parent="Widget.AppCompat.Button.Borderless"></style>
+
+    <style name="FloatingActionButtonStyle" parent="Widget.Design.FloatingActionButton"></style>
+
+    <style name="RadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton"></style>
+
+    <style name="CheckBoxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox"></style>
+
+    <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch"></style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+
+
+
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/search_gray</item>
+        <item name="colorControlActivated">@color/pink</item>
+
+    </style>
+
+    <style name="bottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <!--<item name="android:windowCloseOnTouchOutside">false</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.3</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="behavior_peekHeight">350dp</item>
+    </style>
+</resources>

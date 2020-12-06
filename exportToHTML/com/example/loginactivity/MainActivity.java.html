@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #0000ff;}
+.s3 { color: #008000; font-weight: bold;}
+.s4 { color: #808080; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>com.example.loginactivity;
+
+<span class="s0">import </span>androidx.appcompat.app.AppCompatActivity;
+
+<span class="s0">import </span>android.content.Intent;
+<span class="s0">import </span>android.os.Bundle;
+<span class="s0">import </span>android.view.View;
+<span class="s0">import </span>android.widget.Button;
+<span class="s0">import </span>android.widget.EditText;
+<span class="s0">import </span>android.widget.ProgressBar;
+<span class="s0">import </span>android.widget.TextView;
+<span class="s0">import </span>android.widget.Toast;
+
+<span class="s0">import </span>com.google.firebase.auth.FirebaseAuth;
+<span class="s0">import </span>com.google.firebase.auth.PhoneAuthOptions;
+<span class="s0">import </span>com.google.firebase.auth.PhoneAuthProvider;
+<span class="s0">import </span>com.hbb20.CountryCodePicker;
+
+<span class="s0">public class </span>MainActivity <span class="s0">extends </span>AppCompatActivity {
+
+    TextView alert;
+    TextView alert1;
+    CountryCodePicker ccp;
+    EditText inputNumber;
+    Button btnGenerate;
+    ProgressBar progressBar;
+    FirebaseAuth mAuth;
+    String.Fullnumber;
+
+
+    @Override
+    <span class="s0">protected void </span>onCreate(Bundle savedInstanceState) {
+        <span class="s0">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        alert=findViewById(R.id.alert);
+        alert1=findViewById(R.id.alert1);
+        ccp=findViewById(R.id.ccp);
+        inputNumber=findViewById(R.id.inputNumber);
+        btnGenerate=findViewById(R.id.btnGenerate);
+        progressBar=findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
+        alert.setVisibility(View.GONE);
+        alert1.setVisibility(View.GONE);
+        mAuth=FirebaseAuth.getInstance();
+
+        btnGenerate.setOnClickListener(<span class="s0">new </span>View.OnClickListener() {
+            <span class="s0">private </span>String number;
+
+            @Override
+            <span class="s0">public void </span>onClick(View view) {
+               String Number=inputNumber.getText().toString();
+               <span class="s0">if </span>(number.length()==<span class="s2">0</span>)
+               {
+                   Toast.makeText(MainActivity.<span class="s0">this</span>, <span class="s3">&quot;Please Enter Correct Number&quot;</span>, Toast.LENGTH_SHORT).show();
+               }
+               <span class="s0">else</span>
+               {
+                   String fullName=<span class="s3">&quot;+&quot;</span>+ccp.getFullNumber()+number;
+                   AttemptAuth(fullName);
+
+               }
+
+            }
+
+            <span class="s0">private void </span>AttemptAuth(String fullName) {
+                FullNumber=fullName;
+                progressBar.setVisibility(View.VISIBLE);
+                alert.setText(<span class="s3">&quot;Please Wait&quot;</span>);
+                alert.setVisibility(View.VISIBLE);
+
+
+                PhoneAuthOptions options =
+                        PhoneAuthOptions.newBuilder(mAuth)
+                                .setPhoneNumber(fullName)       <span class="s4">// Phone number to verify</span>
+                                .setTimeout(<span class="s2">60L</span>, Time
+                                        Unit.SECONDS) <span class="s4">// Timeout and unit</span>
+                                .setActivity(<span class="s0">this</span>)                 <span class="s4">// Activity (for callback binding)</span>
+                                .setCallbacks(mCallbacks)          <span class="s4">// OnVerificationStateChangedCallbacks</span>
+                                .build();
+                PhoneAuthProvider.verifyPhoneNumber(options);
+
+            }
+           <span class="s0">private </span>PhoneAuthProvider mCallbacks = <span class="s0">new </span>PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+                @Override
+                <span class="s0">public void </span>onVerificationCompleted(PhoneAuthCredential credential) {
+                  SendToHomeActivity();
+
+                    Object onVerificationCompleted;
+                    Log.d(<span class="s3">&quot;TAG, &quot;</span>onVerificationCompleted:<span class="s3">&quot; + credential);</span>
+
+                    signInWithPhoneAuthCredential(credential);
+                }
+
+               <span class="s0">private void </span>SendToHomeActivity() {
+                   Intent intent=<span class="s0">new </span>Intent(MainActivity.<span class="s0">this</span>,HomeActivity.<span class="s0">class</span>);
+                   startActivity(intent);
+                   finish();
+               }
+
+               @Override
+                <span class="s0">public void </span>onVerificationFailed(FirebaseException e) {
+                    <span class="s4">// This callback is invoked in an invalid request for verification is made,</span>
+                    <span class="s4">// for instance if the the phone number format is not valid.</span>
+                    Log.w(<span class="s3">&quot;TAG&quot;</span>, <span class="s3">&quot;onVerificationFailed&quot;</span>, e);
+
+                    <span class="s0">if </span>(e <span class="s0">instanceof </span>FirebaseAuthInvalidCredentialsException) {
+                        <span class="s4">// Invalid request</span>
+                        <span class="s4">// ...</span>
+                    } <span class="s0">else if </span>(e <span class="s0">instanceof </span>FirebaseTooManyRequestsException) {
+                        Toast.makeText(MainActivity.<span class="s0">this</span>, <span class="s3">&quot;&quot;</span>+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    <span class="s4">// Show a message and update the UI</span>
+                    <span class="s4">// ...</span>
+                }
+
+                @Override
+                <span class="s0">public void </span>onCodeSent(@NonNull String verificationId,
+                        @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                    Intent intent=<span class="s0">new </span>Intent(MainActivity.<span class="s0">this</span>,OTPActivity.<span class="s0">class</span>);
+                    String name;
+                    intent.putExtra(<span class="s3">&quot;verificationId&quot;</span>,verificationId);
+                    intent.putExtra(<span class="s3">&quot;number&quot;</span>, Fullnumber);
+                    Log.d(<span class="s3">&quot;TAG&quot;</span>, <span class="s3">&quot;onCodeSent:&quot; </span>+ verificationId);
+
+                    <span class="s4">// Save verification ID and resending token so we can use them later</span>
+                   <span class="s4">// mVerificationId = verificationId;</span>
+                    <span class="s4">//mResendToken = token;</span>
+
+                    <span class="s4">// ...</span>
+                }
+            };
+            <span class="s0">private void </span>signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+                mAuth.signInWithCredential(credential)
+                        .addOnCompleteListener(<span class="s0">this</span>, <span class="s0">new </span>OnCompleteListener&lt;AuthResult&gt;() {
+                            @Override
+                            <span class="s0">public void </span>onComplete(@NonNull Task&lt;AuthResult&gt; task) {
+                                <span class="s0">if </span>(task.isSuccessful()) {
+                                    <span class="s4">// Sign in success, update UI with the signed-in user's information</span>
+                                    Log.d(<span class="s3">&quot;TAG&quot;</span>, <span class="s3">&quot;signInWithCredential:success&quot;</span>);
+
+                                    FirebaseUser user = task.getResult().getUser();
+                                    <span class="s4">// ...</span>
+                                } <span class="s0">else </span>{
+                                    <span class="s4">// Sign in failed, display a message and update the UI</span>
+                                    Log.w(<span class="s3">&quot;TAG&quot;</span>, <span class="s3">&quot;signInWithCredential:failure&quot;</span>, task.getException());
+                                    <span class="s0">if </span>(task.getException() <span class="s0">instanceof </span>FirebaseAuthInvalidCredentialsException) {
+                                        <span class="s4">// The verification code entered was invalid</span>
+                                    }
+                                }
+                            }
+                        });
+            }
+        };
+
+    }
+}</pre>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dashboard"
+
+    android:padding="5dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <ScrollView
+        android:id="@+id/svParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+        android:overScrollMode="ifContentScrolls"
+        android:scrollbarStyle="insideOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/logo" />
+
+            <TextView
+                style="@style/TextViewStyle.LargeBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bungee"
+                android:paddingBottom="8dp"
+                android:text="Welcome"
+                android:textSize="30sp" />
+
+            <TextView
+                style="@style/TextViewStyle.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please SignUp To Start Smart Park ">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:elevation="4dp"
+                app:cardCornerRadius="4dp"
+                android:orientation="vertical"
+
+                android:paddingBottom="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:visibility="visible">
+
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+                    <com.google.android.material.textfield.TextInputLayout
+
+
+                        style="@style/TextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Name"
+                        app:startIconDrawable="@drawable/name_icon">
+
+                        <EditText
+                            android:id="@+id/etName"
+                            style="@style/Style.edittext"
+
+                            android:inputType="textCapWords"
+                            android:maxLength="100"
+                            android:paddingTop="15dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/TextInputLayoutStyle"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Mobile"
+
+                        app:startIconDrawable="@drawable/mobile_icon"
+                        android:layout_marginTop="5dp">
+
+                        <EditText
+                            android:id="@+id/etMobile"
+                            style="@style/Style.edittext"
+                            android:paddingTop="15dp"
+                            android:inputType="number"
+                            android:maxLength="10" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/TextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Email"
+                        app:startIconDrawable="@drawable/email_icon"
+                        android:layout_marginTop="5dp">
+
+                        <EditText
+                            android:id="@+id/etEmail"
+                            style="@style/Style.edittext"
+                            android:padding="10dp"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="200" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/TextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:layout_marginTop="5dp">
+
+                        <EditText
+                            android:id="@+id/etPassword"
+                            style="@style/Style.edittext"
+                            android:padding="12dp"
+                            android:inputType="textPassword"
+                            android:maxLength="30" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:hint="Confirm Password"
+                        app:passwordToggleContentDescription="Password"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/colorPrimary"
+                        android:layout_marginTop="5dp"
+                      >
+
+                        <EditText
+                            android:id="@+id/etconfirmPassword"
+                            style="@style/Style.edittext"
+                            android:padding="0dp"
+                            android:inputType="textPassword" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnSubmit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/btn_generate"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:text="Submit"
+                        android:textAllCaps="false"></Button>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>
